@@ -1,10 +1,11 @@
 import "./App.css";
-import Create_Data_Points from "./components/Create_Data_Points";
+import Create_Data_Points from "./components/create-data-points/Create_Data_Points";
+import Datapoints from "./container/Datapoints";
 
 function App() {
   return (
     <>
-      <Create_Data_Points />
+      <Datapoints />
     </>
   );
 }

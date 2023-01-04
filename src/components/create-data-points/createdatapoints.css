@@ -3,10 +3,28 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    
 }
 html{
     font-size: 62.5%;
+    color: black ;
 }
+
+.backgroud-left{
+    background-color: #FFFFFF;
+padding-top: 1rem;
+box-shadow: 3px 5px 15px  rgba(10, 01, 10, 0.03);
+border-radius: 10px;
+ 
+}
+.data-point-left{
+    padding: 2rem 1rem 3rem 2rem;
+}
+.main-title{
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
 .data-point-heading{
     font-family: 'Poppins', sans-serif;
 font-size: 2rem;
@@ -14,18 +32,109 @@ font-size: 2rem;
 }
 .create-data-color{
 
-    width: 1.2rem; 
-    height: 2.4rem; 
-    background-color: rgba(255, 160, 122,0.8);
+    width: 1.35rem; 
+    height: 2.6rem; 
+    background-color:#FFBC99;
     border-radius: 20%;
 }
 .create-data-point{
     margin-top: 1rem;
     gap: 1rem;
     margin-left: 1rem;
-    display: flex;
- flex-direction: row;
- justify-content: flex-start;
- align-items: center;
+    padding-left: 1rem;
+}
+.selection-types{
+    outline: none;
+    display: block;
+    width: 10rem;
+    height: 2rem;
+    color: #555;
+}
+.text-area{
+    resize: none;
+    margin-left: 0;
+    padding: 0 !important;
+    width: 100%;
+     background-color: #F6F6F6;
+
+}
+.text-area:is(:focus,::placeholder){
+    outline: none;
+
+}
+.text-area::placeholder{
+    
+    padding: 0.5rem;
+
+    font-size: 1.04rem;
+   
+}
+.text-area:focus{
+    background-color: white;
+}
+.form-control{
+    width: 100%;
+}
+.form-text{
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+    color: #818181;
+}
+.btn-form,.btn-form:hover{
+    padding: 1rem;
+    background-color: #14365D;
+    color: whitesmoke;
+    font-size: 1.2rem;
+    font-weight: normal;
+    
+
+}
+.btn-form:last-child,.btn-form:last-child:hover{
+    background-color: black;
+}
+.btn-icon{
+    font-size: 2rem;
+    color: white;
+    margin-left: -0.4rem;
+}
+.form-container {
+    background-color: #FFFFFF;
+}
+.buttons-style{
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+input[type=text]{
+    min-height: 3.5rem;
+    color: orange;
+    background-color: #F6F6F6;
+}
+
+.select{
+    min-height: 3.5rem;
+    background-color: #F6F6F6;
+}
+.select:focus{
+    background-color:white;
+}
+input::placeholder{
+    font-size: 1.05rem;
+}
+.form-check-label{
+    font-size: 1.1rem;
+   font-family: 'Inter', sans-serif;
+   font-weight: 500;
+}
+input[type=checkbox]{
+
+ 
+    height: 1.2rem;
+    width: 1.2rem;
+}
+input[type=checkbox]:checked{
+ 
+    background-color:#0a9396;
     
 }

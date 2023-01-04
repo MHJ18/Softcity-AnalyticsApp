@@ -1,9 +1,9 @@
 import React from "react";
-
+import "./availabledata.css";
 const AvailableData = () => {
   return (
     <>
-      <div className="">Available</div>;
+      <div className="div"></div>;
     </>
   );
 };

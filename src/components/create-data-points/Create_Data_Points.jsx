@@ -5,7 +5,7 @@ const Create_Data_Points = () => {
     <>
       <div className="create-data-point ">
         <div className="create-data-color"></div>
-        <div className="data-point-heading"> Create Data Point</div>
+        <div className="data-point-heading"> Create Data Points</div>
       </div>
     </>
   );

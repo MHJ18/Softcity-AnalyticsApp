@@ -1,158 +1,211 @@
-
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    
-}
-html{
-    font-size: 62.5%;
-    color: black ;
+
 }
 
-.backgroud-left{
-    
-    background-color: #FFFFFF;
-padding-top: 1rem;
-box-shadow: 3px 5px 15px  rgba(10, 01, 10, 0.03);
-border-radius: 10px;
- 
+html {
+    font-size: 62.5%;
+    color: black;
 }
-.data-point-left{
-    
+
+.backgroud-left {
+
+    background-color: #FFFFFF;
+    padding-top: 1rem;
+    box-shadow: 3px 5px 15px rgba(10, 01, 10, 0.03);
+    border-radius: 10px;
+
+}
+
+.data-point-left {
+
     padding: 2rem 1rem 3rem 2rem;
 }
-.main-title{
+
+.main-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
 }
 
-.data-point-heading{
+.data-point-heading {
     font-family: 'Poppins', sans-serif;
-font-size: 2rem;
+    font-size: 2rem;
 
 }
-.create-data-color{
 
-    width: 1.35rem; 
-    height: 2.6rem; 
-    background-color:#FFBC99;
+.create-data-color {
+
+    width: 1.35rem;
+    height: 2.6rem;
+    background-color: #FFBC99;
     border-radius: 20%;
 }
-.create-data-point{
+
+.create-data-point {
     margin-top: 1rem;
     gap: 1rem;
     margin-left: 1rem;
     padding-left: 1rem;
 }
-.selection-types{
+
+.selection-types {
     outline: none;
     display: block;
     width: 10rem;
     height: 2rem;
     color: #555;
 }
-.text-area{
+
+.text-area {
     resize: none;
     margin-left: 0;
     padding: 0 !important;
     width: 100%;
     min-height: 2rem;
     height: 7rem;
-     background-color: #F6F6F6;
+    background-color: #F6F6F6;
 
 }
 
-.text-area::placeholder{
-    
+.text-area::placeholder {
+
     padding: 0.5rem;
 
     font-size: 1.04rem;
-   
+
 }
-.text-area:focus{
+
+.text-area:focus {
     background-color: white;
 }
-.form-control{
+
+.form-control {
     width: 100%;
 }
-.form-text{
+
+.form-text {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
     font-size: 1.2rem;
     padding-bottom: 0.5rem;
     color: #818181;
 }
-.btn-form,.btn-form:hover{
+
+.btn-form,
+.btn-form:hover {
     padding: 1rem;
     background-color: #14365D;
     color: whitesmoke;
     font-size: 1.2rem;
     font-weight: normal;
-    
+
 
 }
-.btn-form:last-child,.btn-form:last-child:hover{
+
+.btn-form:last-child,
+.btn-form:last-child:hover {
     background-color: black;
 }
-.btn-icon{
+
+.btn-icon {
     font-size: 2rem;
     color: white;
     margin-left: -0.4rem;
 }
+
 .form-container {
     background-color: #FFFFFF;
 }
-.buttons-style{
+
+.buttons-style {
     margin-top: 1rem;
     margin-bottom: 2.5rem;
 }
-input[type=text]{
+
+input[type=text] {
     min-height: 3.5rem;
     color: orange;
     background-color: #F6F6F6;
 }
 
-.select{
+.select {
     min-height: 3.5rem;
     background-color: #F6F6F6;
 }
-.select:focus{
-    background-color:white;
+
+.select:focus {
+    background-color: white;
 }
-input::placeholder{
+
+input::placeholder {
     font-size: 1.05rem;
 }
-.form-check-label{
-    font-size: 1.1rem;
-   font-family: 'Inter', sans-serif;
-   font-weight: 500;
-}
-input[type=checkbox]{
 
- 
+.form-check-label {
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+input[type=checkbox] {
+
+
     height: 1.2rem;
     width: 1.2rem;
 }
-input[type=checkbox]:checked{
- 
-    background-color:#0a9396;
-    
+
+input[type=checkbox]:checked {
+
+    background-color: #0a9396;
+
 }
-#text-field{
+
+#text-field {
     outline: none;
     border: none;
     color: #555;
     background-color: white;
 }
-.label-input{
+
+.label-input {
     margin-bottom: 0.8rem;
 }
-.hidden{
+
+.hidden {
     transform: translateX(-20%);
-    
+
 }
-.show{
+
+.show {
     transform: translateX(0%);
     transition: transform 0.2s ease-in-out;
+}
+
+.addicons {
+    display: block;
+    filter: contrast(110%);
+    margin: 1.5rem 0 1.5rem 0;
+    font-size: 4rem;
+    fill: #1d3557;
+    cursor: pointer;
+
+}
+
+.addicons:focus,
+.addicons:active {
+    fill: #001219;
+}
+
+.check-label {
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    color: #777;
+    font-size: 1.2rem;
+
+}
+
+.m-right {
+    margin-right: 0.5rem;
 }

@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./createdatapoints.css";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoMdAddCircle } from "react-icons/io";
 
-import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { useForm, FormProvider, useFormState } from "react-hook-form";
 import Inputs from "./Inputs";
 
-const Form = () => {
+const Form = ({ func }) => {
   const methods = useForm();
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = methods;
-  const [des, setdes] = useState("text");
-  const [textField, settextField] = useState({
-    datapointname: "",
-    datapointtype: des,
-    description: "",
-  });
+  const { register, handleSubmit, watch, reset, setValue } = methods;
+
+  // useEffect(async () => {
+  //   await resetAsyncForm();
+  // }, [resetAsyncForm]);
+
+  // useEffect(() => {
+  //   if (formState.isSubmitSuccessful) {
+  //     reset();
+  //   }
+  // }, [formState, reset]);
+
+  //
+  const [descheck, setdescheck] = useState(false);
   const [inputFields, setInputFields] = useState([
     { dataPointName: "", description: "", checkbox: "" },
   ]);
@@ -28,17 +30,7 @@ const Form = () => {
   const [columns, setcolumns] = useState([]);
   const [state, setstate] = useState(false);
   //
-  useEffect(() => {
-    // console.log(textField);
-  }, [textField]);
 
-  //
-
-  //
-  // const update = function () {
-  //   const result = [textField];
-  //   console.log(result);
-  // };
   //add
   const add1 = function () {
     const obj = { dataPointName: "", description: "", checkbox: null };
@@ -52,40 +44,19 @@ const Form = () => {
   const checkbox = function () {
     setischecked(!ischecked);
   };
-  //form submit
-  const formsubmit = function (e) {
-    e.preventDefault();
-  };
-  //
-
-  // onchange;
-  const ttext = function (e) {
-    //checked as u start typing
-    if (e.target.value !== "") {
-      setdes({ checked: true, value: e.target.value });
-    } else {
-      setdes({ checked: false });
-    }
-  };
   //data pointtype
   const onchange = function (e) {
-    // e.persist();
+    e.persist();
+    e.preventDefault();
     console.log(e.target.value);
-
-    //  let lab = e.target.value;
-    // setInputFields([{ dataPointName: "", description: "", checkbox: "" }]);
-    //formdata collection
-    // settextField({
-    //   datapointname: "",
-    //   datapointtype: "",
-    //   description: "",
-    // });
+    setischecked(false);
 
     //triggering number selecton based on that checkbox
     if (e.target.value === "number") {
       setstate({
         success: false,
         type: e.target.value,
+        boxdescription: true,
       });
     }
     //
@@ -95,24 +66,29 @@ const Form = () => {
         type: e.target.value,
       });
     } else if (
-      e.target.value === "Sdrop" ||
-      e.target.value === "SNdrop" ||
-      e.target.value === "Mdrop" ||
+      e.target.value === "Sdrop-TextField" ||
+      e.target.value === "Mdrop-NumberField" ||
+      e.target.value === "Mdrop-TextField" ||
       e.target.value === "checkbox" ||
       e.target.value === "radio" ||
       e.target.value === "date" ||
       e.target.value === "url" ||
-      e.target.value === "MNdrop"
+      e.target.value === "Mdrop-NumberField"
     ) {
       //setting custom label
       if (
-        e.target.value === "SNdrop" ||
-        e.target.value === "Sdrop" ||
-        e.target.value === "Mdrop" ||
+        e.target.value === "Mdrop-NumberField" ||
+        e.target.value === "Sdrop-TextField" ||
+        e.target.value === "Mdrop-TextField" ||
         e.target.value === "date" ||
-        e.target.value === "MNdrop"
+        e.target.value === "Mdrop-NumberField"
       ) {
-        setstate((state) => ({ ...state, label: "Label Drop", success: true }));
+        setstate((state) => ({
+          ...state,
+          boxdescription: false,
+          label: "Label Drop",
+          success: true,
+        }));
       }
       if (e.target.value === "radio") {
         setstate((state) => ({ ...state, label: "Label Radio" }));
@@ -126,7 +102,7 @@ const Form = () => {
         e.target.value === "radio" ||
         e.target.value === "date" ||
         e.target.value === "url" ||
-        e.target.value === "MNdrop" ||
+        e.target.value === "Mdrop-NumberField" ||
         e.target.value === "number"
       ) {
         setstate((state) => ({ ...state, boxdescription: true }));
@@ -141,7 +117,7 @@ const Form = () => {
   const createColumns = function (e) {
     setTimeout(() => {
       setrefs("show");
-    }, 200);
+    }, 300);
 
     console.log(e.target.value);
 
@@ -157,23 +133,22 @@ const Form = () => {
       setcolumns(array);
     }
   };
-  //currency
-  const currency = function (e) {
-    console.log(e.target.value);
-    return e.target.value;
+  //
+  const onchangetext = function (e) {};
+  //submit
+  const formreset = function () {
+    setstate(false);
+    setischecked(false);
+    setcolumns([]);
+
+    reset();
   };
 
-  //
-  const onchangetext = function (e) {
-    settextField({
-      ...textField,
-      [e.target.name]: e.target.value,
-    });
-  };
-  //submit
   const onSubmit = (data) => {
-    console.log(data);
+    func(data);
+    formreset();
   };
+
   return (
     <>
       <div className="form-container m-3 p-3">
@@ -184,13 +159,13 @@ const Form = () => {
                 Data Point name
               </label>
               <input
-                {...register("datapointname")}
+                {...register("DataPointName")}
                 onChange={onchangetext}
-                value={textField.datapointname || ""}
+                // value={textField.datapointname || ""}
                 autofocus="true"
                 placeholder="Data point name"
                 type="text"
-                name="datapointname"
+                name="DataPointName"
                 className="form-control form-placeholder"
                 id="DataPointname"
                 aria-describedby="Data-Point-name"
@@ -201,17 +176,18 @@ const Form = () => {
                 Data Point Type
               </label>
               <select
-                {...register("datapointtype")}
+                {...register("dataFieldType")}
                 id="DataType"
-                onChange={(e) => {
-                  onchange(e);
-                  onchangetext(e);
-                }}
-                defaultValue="text"
-                name="datapointtype"
+                onChange={onchange}
+                name="dataFieldType"
                 className="select form-select"
               >
-                <option className="options" value="text" name="Text Field">
+                <option
+                  className="options"
+                  selected
+                  value="text"
+                  name="Text Field"
+                >
                   Text field
                 </option>
                 <option className="options" value="Wnumber" name="Text Field">
@@ -229,16 +205,32 @@ const Form = () => {
                 <option className="options" value="url" name="Email Field">
                   Web Address field
                 </option>
-                <option className="options" value="Sdrop" name="Email Field">
+                <option
+                  className="options"
+                  value="Sdrop-TextField"
+                  name="Email Field"
+                >
                   Single selection Dropdown text field
                 </option>
-                <option className="options" value="Mdrop" name="Email Field">
+                <option
+                  className="options"
+                  value="Mdrop-TextField"
+                  name="Email Field"
+                >
                   Multi Selection Dropdown text field
                 </option>
-                <option className="options" value="SNdrop" name="Email Field">
+                <option
+                  className="options"
+                  value="Mdrop-NumberField"
+                  name="Email Field"
+                >
                   Single selection Dropdown number field
                 </option>
-                <option className="options" value="MNdrop" name="Email Field">
+                <option
+                  className="options"
+                  value="Mdrop-NumberField"
+                  name="Email Field"
+                >
                   Multi Selection Dropdown number field
                 </option>
                 <option className="options" value="radio" name="Email Field">
@@ -259,21 +251,21 @@ const Form = () => {
                 </option>
               </select>
             </div>
-            {state.type === "text-area" && (
+            {state.type === "text-area" && !state.success && (
               <div>
                 <label className="form-label form-text" htmlFor="datapoint">
                   Max Character
                 </label>
                 <input
-                  {...register("text-area")}
+                  {...register("textAarea Field")}
                   autoFocus={true}
                   style={{ height: "3.5rem" }}
                   type={state.type}
                   placeholder="Default: 200"
-                  name="dataPoint"
+                  name="textAarea Field"
                   id="datapoint"
                   maxLength={200}
-                  className="form-control form-placeholder mb-4"
+                  className="form-control form-placeholder mb-4 top-text"
                 />
               </div>
             )}
@@ -283,20 +275,17 @@ const Form = () => {
                   Select Currency
                 </label>
                 <select
-                  {...register("currency-type")}
+                  {...register(`${!ischecked && "Currency"}`)}
                   autofocus={true}
-                  name="currency-type"
-                  onChange={currency}
+                  name="Currency"
                   className="form-select select mb-4"
                   aria-label="Default select"
+                  defaultValue="ngn"
                 >
-                  {/* <option value={null}>Select...</option> */}
-                  <option disabled selected>
-                    -- select a currency
-                  </option>
                   <option value="ngn">NGN</option>
                   <option value="aus">AUS</option>
                   <option value="pkr">PKR</option>
+                  <option value="aud">AUD</option>
                 </select>
               </div>
             )}
@@ -306,7 +295,7 @@ const Form = () => {
                   Select Currency
                 </label>
                 <input
-                  {...register("currency-field")}
+                  {...register(`${ischecked && "currency-field"}`)}
                   autoFocus="true"
                   name="currency-field"
                   className="form-control form-placeholder mb-4"
@@ -322,8 +311,8 @@ const Form = () => {
                   Field Group Name
                 </label>
                 <input
-                  {...register("FieldGroupName")}
-                  name="FieldGroupName"
+                  {...register("fieldGroupName")}
+                  name="fieldGroupName"
                   autoFocus="true"
                   onChange={onchangetext}
                   // value={textField.groupName || ""}
@@ -341,6 +330,7 @@ const Form = () => {
               <input
                 {...register("MultiColumn")}
                 onChange={checkbox}
+                name="MultiColumn"
                 type="checkbox"
                 className="form-check-input"
                 id="exampleCheck1"
@@ -352,17 +342,17 @@ const Form = () => {
                 No. of Columns
               </label>
               <select
-                {...register("No.of columns")}
+                {...register(`${ischecked && "columns"}`)}
                 id="DataPointType"
-                name="No.of columns"
                 onChange={createColumns}
+                name="columns"
                 disabled={!ischecked}
                 className="form-select select"
                 aria-label="Default select"
+                defaultValue=""
               >
-                {/* <option value={null}>Select...</option> */}
-                <option disabled selected>
-                  -- select an option --
+                <option value="" selected hidden>
+                  -- select an option
                 </option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -382,7 +372,10 @@ const Form = () => {
                       </label>
                       <input
                         {...register(
-                          `${state.label || "Label Column"}-${ind + 1}`
+                          `${
+                            ischecked &&
+                            `${state.label || "Label Column"}-${ind + 1}`
+                          }`
                         )}
                         autoFocus={true}
                         placeholder="Column name"
@@ -399,33 +392,60 @@ const Form = () => {
             <div className="mb-4 ">
               {
                 <div>
-                  {state.boxdescription && (
-                    <input
-                      type="checkbox"
-                      name="checkbox"
-                      className="form-check-input mb-3 m-right"
-                      id="check"
-                    />
+                  {state.boxdescription ? (
+                    <>
+                      <div className="mb-2 form-check mt-4">
+                        <label
+                          className="form-check-label check-label"
+                          htmlFor="dropdown"
+                        >
+                          Description
+                        </label>
+                        <input
+                          // onChange={(event) => handleFormChange(props.index, event)}
+                          onChange={() => {
+                            setdescheck(!descheck);
+                          }}
+                          type="checkbox"
+                          name="Check"
+                          className="form-check-input "
+                          id="check"
+                          // checked={descheck}
+                        />
+                      </div>
+                      <textarea
+                        {...register(`${descheck && "Description"}`)}
+                        className="text-area form-control mb-3"
+                        name="Description"
+                        id="dropdown"
+                        cols="40"
+                        rows="3"
+                        minLength="5"
+                        maxLength="30"
+                        placeholder="Description"
+                      ></textarea>
+                    </>
+                  ) : (
+                    <div>
+                      <label
+                        className="form-check-label check-label mb-3 "
+                        htmlFor="DataDescription"
+                      >
+                        Description:
+                      </label>
+                      <textarea
+                        {...register("Description")}
+                        className="text-area form-control"
+                        name="Description"
+                        id="DataDescription"
+                        cols="40"
+                        rows="3"
+                        minLength="5"
+                        maxLength="30"
+                        placeholder="Description"
+                      ></textarea>
+                    </div>
                   )}
-                  <label
-                    className="form-check-label check-label mb-3 "
-                    htmlFor="DataDescription"
-                  >
-                    Description:
-                  </label>
-                  <textarea
-                    {...register("dataDescription")}
-                    // onChange={onchangetext}
-                    // value={inputFields.description || null}
-                    className="text-area form-control"
-                    name="dataDescription"
-                    id="DataDescription"
-                    cols="40"
-                    rows="3"
-                    minLength="5"
-                    maxLength="30"
-                    placeholder="Description"
-                  ></textarea>
                 </div>
               }
             </div>
@@ -438,6 +458,7 @@ const Form = () => {
                 return (
                   <Inputs
                     key={index}
+                    setValue={setValue}
                     res={res}
                     index={index}
                     inputFields={inputFields}
@@ -459,7 +480,13 @@ const Form = () => {
                 <button type="submit" className="btn  mx-3 btn-form">
                   Update <BsArrowRightShort className="btn-icon" />
                 </button>
-                <button type="submit" className="btn  btn-form">
+                <button
+                  onClick={() => {
+                    formreset();
+                  }}
+                  type="submit"
+                  className="btn  btn-form"
+                >
                   Reset
                 </button>
               </div>

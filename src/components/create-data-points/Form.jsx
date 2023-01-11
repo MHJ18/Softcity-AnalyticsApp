@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./createdatapoints.css";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoMdAddCircle } from "react-icons/io";

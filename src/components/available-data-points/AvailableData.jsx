@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import "./availabledata.css";
 const AvailableData = () => {
+  const text = useRef(null);
   const [check, setcheck] = useState(false);
 
   const onclick = function (e) {
     e.preventDefault();
-    console.log(e.target.closest(".box-1").textContent);
+    console.log(text.current.textContent);
   };
   return (
     <>
@@ -16,17 +17,13 @@ const AvailableData = () => {
             <label onClick={onclick}>
               <div className="front-end box">
                 <div className="select_box-1">
-                  <p className="box-text">Front-end</p>
+                  <p className="box-text" ref={text}>
+                    Front-end
+                  </p>
                 </div>
                 <div className="select_box-description">?</div>
               </div>
-              <input
-                type="checkbox"
-                name="checkbox"
-                onChange={() => {
-                  setcheck(!check);
-                }}
-              />
+              <input type="checkbox" name="checkbox" />
             </label>
           </div>
         </div>

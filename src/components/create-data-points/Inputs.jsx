@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 const Inputs = (props) => {
+  const { setValue } = props;
   const { register } = useFormContext();
-  const [text, settext] = useState(false);
+
+  const [checked, setchecked] = useState(false);
   const handleFormChange = function (index, event) {
     console.log(event.target.name);
-    let data = [...props.inputFields];
-    if (event.target.name === "checkbox") {
-      settext(!text);
-      data[index][event.target.name] = !text;
-    } else {
-      data[index][event.target.name] = event.target.value;
-    }
-    props.setInputFields(data);
   };
   return (
     <>
@@ -21,7 +15,7 @@ const Inputs = (props) => {
           Data Point name
         </label>
         <input
-          {...register(`dataPointName${props.index + 1}`)}
+          {...register(`dataPoint.${props.index}`)}
           autofocus="true"
           // value={props.res.dataPointName}
           // onChange={(event) => handleFormChange(props.index, event)}
@@ -29,30 +23,39 @@ const Inputs = (props) => {
           type="text"
           className="form-control form-placeholder"
           id="DataPointname"
-          name={`dataPointName${props.index + 1}`}
+          name={`dataPoint.${props.index}`}
           aria-describedby="Data-Point-name"
         />
         <div className="mb-2 form-check mt-4">
-          <label className="form-check-label check-label" htmlFor="dropdown">
+          <label className="form-check-label check-label" htmlFor="check">
             Description
           </label>
           <input
-            onChange={(event) => handleFormChange(props.index, event)}
+            // {...register(`description-Check ${props.index + 1}`)}
+            // onChange={(event) => handleFormChange(props.index, event)}
             type="checkbox"
-            name="checkbox"
+            onChange={(e) => {
+              setchecked(!checked);
+              // setValue(`des-Check${props.index + 1}`, e.target.value);
+            }}
+            name={`des-Check${props.index + 1}`}
             className="form-check-input "
             id="check"
-            checked={props.res.checkbox}
+            // checked={checked}
           />
         </div>
         <textarea
-          {...register(`dataPointDescription${props.index + 1}`)}
-          disabled={!props.res.checkbox}
+          {...register(`${checked && `Description.${props.index}`}`)}
+          // disabled={!checked}
           // onChange={tte!xt}
           // onChange={(event) => handleFormChange(props.index, event)}
           // value={props.res.description}
+          // onChange={(e) => {
+          //   checked &&
+          //     setValue(`Description-${props.index + 1}`, e.target.value);
+          // }}
           className="text-area form-control mb-3"
-          name={`dataPointDescription${props.index + 1}`}
+          name={`Description.${props.index}`}
           id="dropdown"
           cols="40"
           rows="3"

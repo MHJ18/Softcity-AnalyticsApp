@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "./Form";
 import "./createdatapoints.css";
-const Create_Data_Points = () => {
+const Create_Data_Points = ({ func }) => {
   return (
     <>
       <div className="data-point-left ">
@@ -12,7 +12,7 @@ const Create_Data_Points = () => {
             <div className="data-point-heading">Create Data Points</div>
           </div>
           <div>
-            <Form />
+            <Form func={func} />
           </div>
         </div>
       </div>

@@ -1,9 +1,11 @@
 import React from "react";
 import "./availabledata.css";
-const AvailableData = () => {
+const AvailableData = ({ func }) => {
   return (
     <>
-      <div className="div"></div>;
+      <div className="data_point-right">
+        <div className="div"></div>
+      </div>
     </>
   );
 };

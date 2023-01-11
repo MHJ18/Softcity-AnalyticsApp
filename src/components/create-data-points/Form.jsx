@@ -141,7 +141,7 @@ const Form = () => {
   const createColumns = function (e) {
     setTimeout(() => {
       setrefs("show");
-    }, 300);
+    }, 200);
 
     console.log(e.target.value);
 

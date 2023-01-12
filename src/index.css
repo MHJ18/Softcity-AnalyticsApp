@@ -1,3 +1,30 @@
-*{
-    font-family:  'Poppins', sans-serif;;
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.primary-inputs {
+    background-color: #F6F6F6 !important;
+    outline: none !important;
+    font-size: 13px !important;
+}
+
+.primary-btns {
+    background-color: #14365D !important;
+}
+
+.header-before {
+    position: relative;
+    margin: 1rem 0 0 2.4rem;
+}
+
+.header-before::before {
+    content: '';
+    width: 15px;
+    height: 30px;
+    background-color: #FFBC99;
+    border-radius: 3px;
+    position: absolute;
+    left: -26px;
+    top: -4px;
+
 }

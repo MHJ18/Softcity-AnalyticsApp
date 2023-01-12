@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AvailableData from "../components/available-data-points/AvailableData";
 import Create_Data_Points from "../components/create-data-points/Create_Data_Points";
 import "./datacontainer.css";
 const Datapoints = () => {
-  const [data, setdata] = useState(null);
-  //fetching from child component
+  const [dataForm, setdataForm] = useState([]);
   const fetch_data = function (data) {
-    console.log(data);
+    setdataForm([...dataForm, data]);
   };
   return (
     <>
@@ -16,7 +15,7 @@ const Datapoints = () => {
             <Create_Data_Points func={fetch_data} />
           </div>
           <div className="col-md-7 col-lg-8 col-sm-12 ">
-            <AvailableData func={fetch_data} />
+            <AvailableData data={dataForm} />
           </div>
         </div>
       </div>

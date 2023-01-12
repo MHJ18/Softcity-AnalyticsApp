@@ -37,10 +37,10 @@ html {
 
 .create-data-color {
 
-    width: 1.35rem;
-    height: 2.6rem;
+    width: 1.5rem;
+    height: 3rem;
     background-color: #FFBC99;
-    border-radius: 20%;
+    border-radius: 3px;
 }
 
 .create-data-point {

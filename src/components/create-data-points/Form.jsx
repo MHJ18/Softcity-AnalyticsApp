@@ -146,7 +146,7 @@ const Form = ({ func }) => {
 
   const onSubmit = (data) => {
     func(data);
-    formreset();
+    // formreset();
   };
 
   return (
@@ -161,6 +161,7 @@ const Form = ({ func }) => {
               <input
                 {...register("DataPointName")}
                 onChange={onchangetext}
+                required="true"
                 // value={textField.datapointname || ""}
                 autofocus="true"
                 placeholder="Data point name"
@@ -414,10 +415,10 @@ const Form = ({ func }) => {
                         />
                       </div>
                       <textarea
-                        {...register(`${descheck && "Description"}`)}
+                        {...register(`${descheck && "Description-data"}`)}
                         className="text-area form-control mb-3"
-                        name="Description"
-                        id="dropdown"
+                        name="Description-data"
+                        id="check"
                         cols="40"
                         rows="3"
                         minLength="5"

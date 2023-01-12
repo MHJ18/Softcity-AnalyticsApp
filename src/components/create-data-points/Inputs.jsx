@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import { useFormContext } from "react-hook-form";
 const Inputs = (props) => {
-  const { setValue } = props;
   const { register } = useFormContext();
-
   const [checked, setchecked] = useState(false);
-  const handleFormChange = function (index, event) {
-    console.log(event.target.name);
-  };
   return (
     <>
       <div>

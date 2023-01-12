@@ -1,0 +1,23 @@
+html {
+    font-size: 62.5%;
+}
+
+.data-point-template {
+    background-color: #14365D;
+
+}
+
+.data-template-icon {
+    background-color: #FCC92C;
+    color: white;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.datapoint-icon {
+    font-size: 1.4rem;
+    padding: 1rem 0.5rem 0.96rem 0.5rem;
+
+}

@@ -12,6 +12,10 @@ html {
     color: white;
 }
 
+.select {
+    max-width: 100%;
+}
+
 p {
     margin-bottom: 0;
 }
@@ -20,4 +24,8 @@ p {
     font-size: 1.4rem;
     padding: 1rem 0.5rem 0.96rem 0.5rem;
 
+}
+
+.cursor {
+    cursor: pointer;
 }

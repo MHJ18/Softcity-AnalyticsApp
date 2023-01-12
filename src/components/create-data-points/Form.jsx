@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./createdatapoints.css";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoMdAddCircle } from "react-icons/io";
-
 import { useForm, FormProvider, useFormState } from "react-hook-form";
 import Inputs from "./Inputs";
 
 const Form = ({ func }) => {
   const methods = useForm();
   const { register, handleSubmit, watch, reset, setValue } = methods;
+  // const resetAsyncForm = useCallback(async () => {
+  //   const result = await fetch("./api/formValues.json"); // result: { firstName: 'test', lastName: 'test2' }
+  //   reset(result); // asynchronously reset your form values
+  // }, [reset]);
 
-  // useEffect(async () => {
-  //   await resetAsyncForm();
+  // useEffect(() => {
+  //   resetAsyncForm();
   // }, [resetAsyncForm]);
 
   // useEffect(() => {
@@ -140,7 +143,6 @@ const Form = ({ func }) => {
     setstate(false);
     setischecked(false);
     setcolumns([]);
-
     reset();
   };
 

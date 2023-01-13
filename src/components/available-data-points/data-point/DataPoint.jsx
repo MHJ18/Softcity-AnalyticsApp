@@ -1,8 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { BiQuestionMark } from "react-icons/bi";
 import "./DataPoint.css";
-
-const DataPoint = ({ name, index, func }) => {
+import context from "../../../Context/DashboardContext";
+const DataPoint = ({ name, index }) => {
+  const indexData = useContext(context);
+  const { setting } = indexData;
   // for changing datapoint color on selecttion
 
   // const [color, setcolor] = useState({
@@ -14,20 +16,19 @@ const DataPoint = ({ name, index, func }) => {
     // console.log(first.current);
     // setcolor({ box: "data-box", name: "selected-data" });
     // console.log(first.current);
-
     //pasing index to parent
-    func(index);
+    setting(index);
   };
   return (
     <>
       <div
         key={index}
         onClick={onclick}
-        className={`d-flex justify-content-center mb-3 cursor`}
+        className={`d-flex justify-content-center mb-3 mx-1 cursor`}
         ref={first}
       >
         <p
-          className={`fs-5 select data-point-template text-white px-4 py-3 rounded-start`}
+          className={`fs-5 select data-point-template text-white px-4 rounded-start d-flex align-items-center justify-content-center`}
         >
           {name.DataPointName}
           {name.fieldGroupName && ` (${name.fieldGroupName})`}

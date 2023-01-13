@@ -1,19 +1,22 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useContext } from "react";
 import "./createdatapoints.css";
 import { BsArrowRightShort } from "react-icons/bs";
 import { IoMdAddCircle } from "react-icons/io";
 import { useForm, FormProvider, useFormState } from "react-hook-form";
 import Inputs from "./Inputs";
+import DashboardContext from "../../Context/DashboardContext";
 
-const Form = ({ func }) => {
+const Form = () => {
+  const submit = useContext(DashboardContext);
+  const { fetch_data } = submit;
   const methods = useForm();
-  const { register, handleSubmit, watch, reset, } = methods;
-//
-//
-const [inputFields, setInputFields] = useState([
-  { dataPointName: "", description: "", checkbox: "" },
-]);
-const [descheck, setdescheck] = useState(false);
+  const { register, handleSubmit, watch, reset } = methods;
+  //
+  //
+  const [inputFields, setInputFields] = useState([
+    { dataPointName: "", description: "", checkbox: "" },
+  ]);
+  const [descheck, setdescheck] = useState(false);
   const [refs, setrefs] = useState("hidden");
   const [ischecked, setischecked] = useState(false);
   const [columns, setcolumns] = useState([]);
@@ -134,7 +137,7 @@ const [descheck, setdescheck] = useState(false);
   };
 
   const onSubmit = (data) => {
-    func(data);
+    fetch_data(data);
     // formreset();
   };
 

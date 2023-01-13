@@ -3,24 +3,27 @@ import CreateUserGroup from "./CreateUserGroup";
 import "./availabledata.css";
 import PaginationRounded from "./pagination/Pagination";
 import PaginationDefault from "./pagination/PaginationDefault";
-const AvailableData = ({ data }) => {
-  const getback = function (...data) {
-    console.log(data);
-  };
+import context from "../../Context/DashboardContext";
+const AvailableData = () => {
+  const datapoints = useContext(context);
+  const { dataForm } = datapoints;
+
   return (
     <>
       <div className="div">
         <div className="second-conatiner">
           <div className="backgroud-right">
-            <CreateUserGroup data={data} func={getback} />
+            <CreateUserGroup />
           </div>
-          <div className=" border-top d-flex align-items-center justify-content-between mx-4 ">
-            <p className="fs-5 mx-3">Total: {data.length}</p>
-            <div className="py-4">
-              {/* <PaginationRounded /> */}
-              <PaginationDefault />
+          <footer className="border-top">
+            <div className="  d-flex align-items-center justify-content-between mx-4 ">
+              <p className="fs-5 mx-3">Total: {dataForm.length}</p>
+              <div className="py-4">
+                {/* <PaginationRounded /> */}
+                <PaginationDefault />
+              </div>
             </div>
-          </div>
+          </footer>
         </div>
       </div>
     </>

@@ -1,5 +1,7 @@
 import React from "react";
-
+import Table from "react-bootstrap/Table";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 const PaginationDefault = () => {
   return (
     <div>
@@ -119,4 +121,4 @@ const PaginationDefault = () => {
   );
 };
 
-export default Pagination - Default;
+export default PaginationDefault;

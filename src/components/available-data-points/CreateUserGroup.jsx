@@ -1,24 +1,13 @@
-import React, { useEffect, useId, useState } from "react";
+import React, { useContext, useEffect, useId, useState } from "react";
 import DataPoint from "./data-point/DataPoint";
-
 import { CiSearch } from "react-icons/ci";
 import Form from "react-bootstrap/Form";
-
-const CreateUserGroup = ({ data, func }) => {
+import context from "../../Context/DashboardContext";
+const CreateUserGroup = () => {
+  const finalData = useContext(context);
+  const { dataForm } = finalData;
   const id = useId(null);
-  const [point, setpoint] = useState([]);
-  //getting index of clicked value
-  const setting = function (index) {
-    //gathering all clicked data
-    setpoint([...point, data[index]]);
-  };
 
-  //selected data display
-  // useEffect(() => {
-  //   func(point.length, ...point);
-  // }, [setting]);
-
-  //getting some data to parent
   return (
     <>
       <main className=" d-flex flex-column ">
@@ -27,7 +16,7 @@ const CreateUserGroup = ({ data, func }) => {
             <h3 className="header-before font">Available Data Point</h3>
 
             <div className="d-flex align-items-center justify-content-end flex-column flex-xl-row flex-lg-row flex-md-row margin-left gap-4 w-50">
-              <p className="fs-5">Total: {data.length}</p>
+              <p className="fs-5">Total: {dataForm.length}</p>
               <div className="primary-inputs d-flex align-items-center rounded search-bar">
                 <span className=" px-2">
                   <CiSearch className="search-icon" />
@@ -39,15 +28,17 @@ const CreateUserGroup = ({ data, func }) => {
               </div>
             </div>
           </div>
-          <div className="d-flex flex-wrap gap-2 gap-xl-4 gap-lg-4 align-items-center">
-            {/* mapping over all the form data */}
-            {data.map((res, ind) => {
-              return (
-                <>
-                  <DataPoint id={id} name={res} index={ind} func={setting} />
-                </>
-              );
-            })}
+          <div className="overflow">
+            <div className="d-flex flex-wrap gap-2 gap-xl-4 gap-lg-4 align-items-center ">
+              {/* mapping over all the form data */}
+              {dataForm.map((res, ind) => {
+                return (
+                  <>
+                    <DataPoint id={id} name={res} index={ind} />
+                  </>
+                );
+              })}
+            </div>
           </div>
         </div>
       </main>

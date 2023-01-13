@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AvailableData from "../components/available-data-points/AvailableData";
 import CreateDataPoints from "../components/create-data-points/Create_Data_Points";
+import DashboardState from "../Context/DashboardState";
+import DashboardContext from "../Context/DashboardContext";
 import "./datacontainer.css";
 const Datapoints = () => {
+  const context = useContext(DashboardContext);
+  
   const [dataForm, setdataForm] = useState([]);
   const fetch_data = function (data) {
     setdataForm([...dataForm, data]);

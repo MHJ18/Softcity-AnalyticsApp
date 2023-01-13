@@ -7,27 +7,13 @@ import Inputs from "./Inputs";
 
 const Form = ({ func }) => {
   const methods = useForm();
-  const { register, handleSubmit, watch, reset, setValue } = methods;
-  // const resetAsyncForm = useCallback(async () => {
-  //   const result = await fetch("./api/formValues.json"); // result: { firstName: 'test', lastName: 'test2' }
-  //   reset(result); // asynchronously reset your form values
-  // }, [reset]);
-
-  // useEffect(() => {
-  //   resetAsyncForm();
-  // }, [resetAsyncForm]);
-
-  // useEffect(() => {
-  //   if (formState.isSubmitSuccessful) {
-  //     reset();
-  //   }
-  // }, [formState, reset]);
-
-  //
-  const [descheck, setdescheck] = useState(false);
-  const [inputFields, setInputFields] = useState([
-    { dataPointName: "", description: "", checkbox: "" },
-  ]);
+  const { register, handleSubmit, watch, reset, } = methods;
+//
+//
+const [inputFields, setInputFields] = useState([
+  { dataPointName: "", description: "", checkbox: "" },
+]);
+const [descheck, setdescheck] = useState(false);
   const [refs, setrefs] = useState("hidden");
   const [ischecked, setischecked] = useState(false);
   const [columns, setcolumns] = useState([]);
@@ -118,6 +104,7 @@ const Form = ({ func }) => {
   };
   //
   const createColumns = function (e) {
+    //a little animation
     setTimeout(() => {
       setrefs("show");
     }, 300);
@@ -461,7 +448,6 @@ const Form = ({ func }) => {
                 return (
                   <Inputs
                     key={index}
-                    setValue={setValue}
                     res={res}
                     index={index}
                     inputFields={inputFields}

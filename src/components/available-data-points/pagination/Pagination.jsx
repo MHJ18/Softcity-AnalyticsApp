@@ -8,7 +8,7 @@ export default function PaginationRounded() {
   };
 
   return (
-    <Stack spacing={2}>
+    <Stack spacing={{ xs: 1, sm: 2, md: 4 }}>
       <Pagination
         onChange={onclick}
         count={10}

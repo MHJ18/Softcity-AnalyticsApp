@@ -3,7 +3,9 @@ import CreateUserGroup from "./CreateUserGroup";
 import "./availabledata.css";
 import PaginationRounded from "./pagination/Pagination";
 const AvailableData = ({ data }) => {
-  const getback = function (...data) {};
+  const getback = function (...data) {
+    console.log(data);
+  };
   return (
     <>
       <div className="div">

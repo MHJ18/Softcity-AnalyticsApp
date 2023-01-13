@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { context } from "./DashboardContext";
+import context from "./DashboardContext";
 const DashboardState = (props) => {
+  const variable = "hassaan";
   return (
     <>
-      <context.Provider value={{}}>{props.children}</context.Provider>;
+      <context.Provider value={{ variable }}>{props.children}</context.Provider>
+      ;
     </>
   );
 };

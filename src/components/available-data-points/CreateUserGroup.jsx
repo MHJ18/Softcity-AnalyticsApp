@@ -1,4 +1,4 @@
-import React, { useId, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import DataPoint from "./data-point/DataPoint";
 
 import { CiSearch } from "react-icons/ci";
@@ -6,15 +6,19 @@ import Form from "react-bootstrap/Form";
 
 const CreateUserGroup = ({ data, func }) => {
   const id = useId(null);
-  console.log(data);
   const [point, setpoint] = useState([]);
   //getting index of clicked value
   const setting = function (index) {
     //gathering all clicked data
     setpoint([...point, data[index]]);
   };
+
+  //selected data display
+  // useEffect(() => {
+  //   func(point.length, ...point);
+  // }, [setting]);
+
   //getting some data to parent
-  func(data.length);
   return (
     <>
       <main className=" d-flex flex-column ">

@@ -7,7 +7,7 @@ import "./datacontainer.css";
 const Datapoints = () => {
   return (
     <>
-      <div className="container container-color pt-4">
+      <div className="container-color pt-4">
         <div className="row">
           <div className="col-md-5 col-lg-4 col-sm-12  ">
             <CreateDataPoints />

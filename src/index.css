@@ -1,6 +1,9 @@
 * {
     font-family: 'Poppins', sans-serif;
 }
+html {
+    font-size: 62.5%;
+}
 
 .primary-inputs {
     background-color: #F6F6F6 !important;

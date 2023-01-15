@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import context from "./DashboardContext";
 const DashboardState = (props) => {
+  //
   //Hassaan context working
   const [point, setpoint] = useState([]);
   const [dataForm, setdataForm] = useState([]);
@@ -11,6 +12,7 @@ const DashboardState = (props) => {
     //gathering all clicked data
     setpoint([...point, dataForm[index]]);
   };
+  //
   ///body
   return (
     <>

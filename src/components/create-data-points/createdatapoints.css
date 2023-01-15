@@ -11,16 +11,13 @@ html {
 }
 
 .backgroud-left {
-
     background-color: #FFFFFF;
     padding-top: 1rem;
     box-shadow: 3px 5px 15px rgba(10, 01, 10, 0.03);
     border-radius: 10px;
-
 }
 
 .data-point-left {
-
     padding: 2rem 1rem 3rem 2rem;
 }
 
@@ -36,7 +33,6 @@ html {
 }
 
 .create-data-color {
-
     width: 1.5rem;
     height: 3rem;
     background-color: #FFBC99;

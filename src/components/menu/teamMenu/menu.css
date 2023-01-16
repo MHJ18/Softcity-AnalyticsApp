@@ -7,64 +7,62 @@
 
 }
 
-
-.position {
+.position-1 {
     position: absolute;
     top: 50px;
     left: 50px;
 
 }
 
-.contains {
+.contain {
 
     padding-top: 1rem;
     /* margin-left: 2rem; */
     gap: 2.5rem !important;
 }
 
-.card-menu {
-
+.card-menu-dashboard {
+    border: none !important;
+    cursor: pointer;
     width: 17rem !important;
 }
 
-.card {
-    border: none !important;
-}
-
-.card img {
+.card .card-img {
     border-top: 8px;
     border-bottom: 8px;
     border-left: 6px;
     border-right: 6px;
     border-radius: 10px;
-    /* border-style: outset; */
+
     border-style: solid;
     border-radius: 1px;
     border-color: #F5F5F5;
-    max-height: 14rem;
+    max-height: 13rem;
     width: 100%;
 
 
 }
 
-.card-body {
+.card-body.card-foter {
     /* padding: 1rem 1rem 0rem 0.7rem !important; */
     padding: 0;
     padding-top: 1rem;
 
 }
 
-.card-menu .card-description {
-    font-size: 1.05rem;
+.card-foter .card-description-1 {
+    font-size: 1.1rem;
     color: #777;
     line-height: 1.7;
-    font-weight: 600;
+    font-weight: 500;
+
 
 }
 
-.card-menu .card-title {
-    font-size: 1.22rem !important;
-    font-weight: 600;
+.card-foter .card-title-1 {
+    margin-bottom: 0.3rem;
+    font-size: 1.3rem !important;
+    font-weight: 700;
     font-family: 'Poppins', sans-serif;
     color: #555;
 

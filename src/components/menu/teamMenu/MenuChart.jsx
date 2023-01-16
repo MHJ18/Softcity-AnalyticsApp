@@ -27,9 +27,9 @@ const MenuChart = () => {
 
   return (
     <>
-      <div className="position">
+      <div className="position-1">
         <div className=" menu-container ">
-          <div className="contains d-flex flex-wrap flex-lg-row align-items-center justify-content-center ">
+          <div className="contain d-flex flex-wrap flex-lg-row align-items-center justify-content-center ">
             {menuInfo?.map((res) => (
               <Card details={res} />
             ))}

@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import Data from "./Data";
 import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai";
+import { FiChevronLeft } from "react-icons/fi";
 import "./data.css";
 const MenuChart = () => {
   const [menuInfo, setmenuInfo] = useState([
     {
       Title: "Field Team KPI",
-      img: "speed.png",
+      img: "sales.png",
       description:
         "This is the description text that appears as entered by the dashboard creator",
     },
     {
       Title: "Internal Revenue",
-      img: "chart2.jpg",
+      img: "database.png",
       description:
         "This is the description text that appears as entered by the dashboard creator",
     },

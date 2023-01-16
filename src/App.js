@@ -10,7 +10,7 @@ function App() {
     <>
       <DashboardState>
         {/* <Datapoints /> */}
-        {/* <MenuChart /> */}
+        <MenuChart />
         <MenuData />
       </DashboardState>
     </>

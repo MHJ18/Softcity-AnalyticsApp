@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import CreateUserGroup from "./CreateUserGroup";
 import "./availabledata.css";
-import PaginationRounded from "./pagination/Pagination";
+
 import PaginationDefault from "./pagination/PaginationDefault";
 import context from "../../Context/DashboardContext";
 const AvailableData = () => {

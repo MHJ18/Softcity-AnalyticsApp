@@ -11,9 +11,9 @@ function App() {
   return (
     <>
       <DashboardState>
-        {/* <Datapoints /> */}
-        {/* <MenuChart /> */}
-        {/* <MenuData /> */}
+        <Datapoints />
+        <MenuChart />
+        <MenuData />
         <Filter />
       </DashboardState>
     </>

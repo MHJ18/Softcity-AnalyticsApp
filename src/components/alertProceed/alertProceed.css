@@ -1,0 +1,25 @@
+.bs {
+    box-shadow: 10px 10px 0px 1000px rgba(0, 0, 0, 0.8);
+}
+
+.blue-line {
+    width: 25px;
+    height: 1;
+    background-color: #168491;
+    border: 2px solid #168491;
+    border-radius: 5px;
+}
+
+.btn-blue {
+    height: 38px;
+    font-size: 11px;
+    background-color: #14365D;
+    color: #fff;
+}
+
+.btn-black {
+    height: 38px;
+    font-size: 11px;
+    background-color: #000000;
+    color: #fff;
+}

@@ -1,0 +1,94 @@
+.sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  height: calc(100% - 60px);
+  overflow: auto;
+  margin-bottom: 1rem;
+}
+
+/* width */
+#sidebar_softcity::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 15px;
+}
+
+/* Track */
+#sidebar_softcity::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+#sidebar_softcity::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+#sidebar_softcity::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.sidebar-item {
+  padding: 0.75em 1em;
+  display: block;
+  transition: background-color 0.15s;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #2f2f2f;
+  font-size: 12px;
+}
+.sidebar-item:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: inherit;
+}
+
+.sidebar-title {
+  display: flex;
+  font-size: 1.2em;
+  align-items: center;
+  white-space: nowrap;
+}
+.sidebar-title .menu-icon {
+  margin-right: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1;
+  width: 31px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-title .menu-title {
+  color: inherit;
+  display: inline-block;
+  font-size: 0.9375rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.sidebar-title i.menu-arrow {
+  font: normal normal normal 24px/1 Material Design Icons;
+  line-height: 1;
+  font-size: 1rem;
+  margin-left: auto;
+  color: rgba(108, 114, 147, 0.36);
+}
+.sidebar-title .toggle-btn {
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.sidebar-item.open > .sidebar-title .toggle-btn {
+  transform: rotate(180deg);
+}
+.sidebar-content {
+  padding-top: 0.25em;
+  height: 0;
+  overflow: hidden;
+}
+.sidebar-item.open > .sidebar-content {
+  height: auto;
+}
+/* .sidebar-item.plain i{
+    display: inline-block;
+    width: 31px;
+    height: 31px;
+  } */

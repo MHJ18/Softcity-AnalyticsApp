@@ -1,0 +1,149 @@
+/* Global/Reset */
+body {
+  background-color: #f4f4f4 !important;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+label{
+  font-size:14px;
+  font-weight:500;
+}
+.form-control {
+  background-color: #f4f4f4 !important;
+  border:0 !important;
+}
+.form-control:focus {
+  box-shadow: none !important;
+}
+.bg-theme{
+  background-color: #14365d !important;
+}
+.btn-theme {
+  background-color: #14365d !important;
+  border-color:#14365d !important;
+  color:#ffffff !important
+}
+.softcity-navbar form {
+  position: relative;
+  background: #f4f4f4;
+  border-radius: 8px;
+}
+.softcity-navbar form .form-control {
+  background: transparent;
+  border: 0;
+}
+.app-main {
+  flex: 1;
+  display: flex;
+  z-index: 8;
+  position: relative;
+  padding-top: 70px;
+}
+.app-sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 210px;
+  width: 210px;
+  min-width: 210px;
+  z-index: 20;
+  overflow: hidden;
+  position: relative;
+  margin-top: -70px;
+  padding-top: 70px;
+  transition: all 0.2s;
+  position: fixed;
+  height: 100vh;
+  box-shadow: 7px 0 60px rgb(0 0 0 / 5%);
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+}
+.app-main .app-main__outer {
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  z-index: 12;
+  padding-left: 200px;
+  transition: all 0.3s ease;
+}
+.closed-sidebar .app-main__outer {
+  padding-left: 0px;
+}
+.closed-sidebar .app-sidebar {
+  width: 0px;
+  min-width: 0px;
+  flex: 0 0 0px;
+  z-index: 13;
+}
+.closed-sidebar .sidebar-footer {
+  display: none;
+}
+.app-main .app-main__inner {
+  padding: 30px 30px 0;
+  flex: 1;
+  min-height: calc(100vh - 60px);
+}
+/* Vertical menu */
+.vertical-nav-menu {
+  margin: 0;
+  padding: 20px 15px 0;
+  position: relative;
+  list-style: none;
+  width: 100%;
+  overflow-y: auto;
+  height: calc(100% - 60px);
+  margin-bottom: 1rem;
+}
+@media (max-width: 768px) {
+  .app-main .app-main__outer {
+    padding-left: 0;
+  }
+  .app-sidebar {
+    min-height: 100vh;
+    top: 70px;
+    bottom: 0;
+    overflow: auto;
+    left: -280px;
+    -webkit-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .closed-sidebar .app-sidebar {
+    left: 0;
+    width: 244px;
+  }
+}
+
+/* Dahboard */
+.card-title {
+  position: relative;
+  padding-left: 20px;
+  font-size:18px !important;
+}
+.card-title:before {
+  content: "";
+  width: 12px;
+  height: 100%;
+  background: #ffbc99;
+  border-radius: 3px;
+  position: absolute;
+  left: 0px;
+  top: 0;
+}

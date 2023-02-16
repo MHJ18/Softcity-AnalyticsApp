@@ -1,10 +1,5 @@
-html {
-    font-size: 62.5%;
-}
-
 .data-point-template {
     background-color: #14365D;
-
 }
 
 .data-template-icon {
@@ -12,8 +7,9 @@ html {
     color: white;
 }
 
-.select {
+.select-point {
     max-width: 100%;
+    /* background-color: black !important; */
 }
 
 p {

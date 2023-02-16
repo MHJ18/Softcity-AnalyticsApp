@@ -1,20 +1,28 @@
 import "./App.css";
-import Create_Data_Points from "./components/create-data-points/Create_Data_Points";
-import MenuData from "./components/menu/dataMenu/MenuData";
-
-import Filter from "./components/menu/filter/Filter";
-import MenuChart from "./components/menu/teamMenu/MenuChart";
-import Datapoints from "./container/Datapoints";
+import Header from "./shared/header/Header";
+import Sidebar from "./shared/sidebar/Sidebar";
+import Footer from "./shared/Footer";
+import AppRoutes from "./AppRoutes";
+import { BrowserRouter as Router } from "react-router-dom";
 import DashboardState from "./Context/DashboardState";
-
 function App() {
   return (
     <>
       <DashboardState>
-        <Datapoints />
-        <MenuChart />
-        <MenuData />
-        <Filter />
+        <Router>
+          <div className="App">
+            <Header />
+            <div className="app-main">
+              <Sidebar />
+              <div className="app-main__outer">
+                <div className="app-main__inner">
+                  <AppRoutes />
+                </div>
+                <Footer />
+              </div>
+            </div>
+          </div>
+        </Router>
       </DashboardState>
     </>
   );

@@ -1,0 +1,103 @@
+[
+    {
+        "title": "Data Point",
+        "icon": "bi-grid",
+        "childrens": [
+            {
+                "title": "Create Data Point",
+                "path": "/create-datapoint"
+            },
+            {
+                "title": "View Data Point",
+                "path": "/datapoints"
+            },
+            {
+                "title": "Delete Data Point",
+                "path": "/delet-data-point"
+            }
+        ]
+    },
+    {
+        "title": "Collections",
+        "icon": "bi-folder",
+        "childrens": [
+            {
+                "title": "All collections",
+                "path": "/collections"
+            },
+            {
+                "title": "Register",
+                "path": "/register"
+            },
+            {
+                "title": "Forgot Password",
+                "path": "/forgot-password"
+            },
+            {
+                "title": "Reset Password",
+                "path": "/reset-password"
+            }
+        ]
+    },
+    {
+        "title": "Charts",
+        "icon": "bi-pie-chart",
+        "childrens": [
+            {
+                "title": "Profile",
+                "path": "/profile"
+            }
+        ]
+    },
+    {
+        "title": "Dashboard",
+        "icon": "bi-columns-gap",
+        "path":"/"
+    },
+    {
+        "title": "User Group",
+        "icon": "bi-person-gear",
+        "childrens": [
+            {
+                "title": "Manage User",
+                "path": "/"
+            },
+            {
+                "title": "User Setting",
+                "path": "/profile"
+            },
+            {
+                "title": "Add User",
+                "path": "/profile"
+            }
+        ]
+    },
+    {
+        "title": "Users",
+        "icon": "bi-person",
+        "childrens": [
+            {
+                "title": "Profile",
+                "path": "/"
+            },
+            {
+                "title": "Account Setting",
+                "path": "/profile"
+            },
+            {
+                "title": "Logout",
+                "path": "/profile"
+            }
+        ]
+    },
+    {
+        "title": "Support",
+        "icon": "bi-question-circle-fill",
+        "path": "/support"
+    },
+    {
+        "title": "Report Bug",
+        "icon": "bi-bug",
+        "path": "/report-bug"
+    }
+]

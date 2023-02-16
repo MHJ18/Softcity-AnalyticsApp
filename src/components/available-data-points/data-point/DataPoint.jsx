@@ -28,7 +28,7 @@ const DataPoint = ({ name, index }) => {
         ref={first}
       >
         <p
-          className={`fs-5 select data-point-template text-white px-4 rounded-start d-flex align-items-center justify-content-center`}
+          className={`fs-5 select-point data-point-template text-white px-4 rounded-start d-flex align-items-center justify-content-center`}
         >
           {name.DataPointName}
           {name.fieldGroupName && ` (${name.fieldGroupName})`}

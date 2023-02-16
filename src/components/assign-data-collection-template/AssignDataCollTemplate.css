@@ -1,0 +1,23 @@
+/* .primary-btn{
+    background-color: #168491 !important;
+} */
+
+/* .inputs{
+    background-color: red !important;
+} */
+
+.custom-form-control{
+    width: 37em !important;
+}
+
+
+
+@media (max-width:800px) {
+
+    .custom-form-control{
+        width: 100% !important;
+
+    }
+
+    
+}

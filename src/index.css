@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@100;300;400;500&family=Signika+Negative:wght@300;400;500&display=swap');
-
 * {
     font-family: 'Poppins', sans-serif;
-}
-
-html {
-    font-size: 62.5%;
 }
 
 .primary-inputs {
@@ -20,7 +14,7 @@ html {
 
 .header-before {
     position: relative;
-    margin: 1rem 0 0 2.4rem;
+    margin-left: 2%;
 }
 
 .header-before::before {
@@ -30,7 +24,7 @@ html {
     background-color: #FFBC99;
     border-radius: 3px;
     position: absolute;
-    left: -26px;
-    top: -4px;
+    left: -30px;
+    top: -3px;
 
 }

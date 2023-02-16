@@ -469,7 +469,7 @@ const Form = () => {
                 )}
               </div>
               <div>
-                <button type="submit" className="btn  mx-3 btn-form">
+                <button type="submit" className="btn mx-2 py-2 create-btn-form">
                   Update <BsArrowRightShort className="btn-icon" />
                 </button>
                 <button
@@ -477,7 +477,7 @@ const Form = () => {
                     formreset();
                   }}
                   type="submit"
-                  className="btn  btn-form"
+                  className="btn py-2 create-btn-form"
                 >
                   Reset
                 </button>

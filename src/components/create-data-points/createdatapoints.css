@@ -5,10 +5,7 @@
 
 }
 
-html {
-    font-size: 62.5%;
-    color: black;
-}
+
 
 .backgroud-left {
     background-color: #FFFFFF;
@@ -94,24 +91,34 @@ html {
     color: #818181;
 }
 
-.btn-form,
-.btn-form:hover {
-    padding: 1rem;
-    background-color: #14365D;
-    color: whitesmoke;
-    font-size: 1.2rem;
+.create-btn-form {
+    font-size: 1rem;
     font-weight: normal;
+    background-color: #194272 !important;
+    color: white !important;
+}
+
+.create-btn-form:hover {
+
+    background-color: #06305f !important;
+    color: white !important;
+
 
 
 }
 
-.btn-form:last-child,
-.btn-form:last-child:hover {
-    background-color: black;
+.create-btn-form:last-child {
+    font-size: 1rem;
+    background-color: black !important;
+    color: white !important;
+}
+
+.create-btn-form:last-child:hover {
+    color: white;
 }
 
 .btn-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: white;
     margin-left: -0.4rem;
 }

@@ -1,0 +1,25 @@
+.carousel-content img{
+    display:inline-block !important;
+    width:60px !important;
+    height:60px;
+    border-radius:5px;
+}
+.carousel-content h5{
+    font-size:14px;
+    line-height:18px;
+    font-weight:600;
+}
+.carousel-content p{
+    font-size:12px;
+    line-height:18px;
+    font-weight:400;
+    margin-bottom:0;
+}
+
+.owl-theme .owl-nav [class*='owl-']{
+    width:25px;
+    height:25px;
+    line-height:23px !important;
+    border-radius:50%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}

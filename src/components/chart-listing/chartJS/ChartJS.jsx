@@ -165,6 +165,7 @@ const ChartJS = () => {
         },
 
         data: {
+          type: "bubble",
           labels: labels,
           datasets: [
             {
@@ -331,7 +332,7 @@ const ChartJS = () => {
                 <Card.Title>Primary Card Title</Card.Title>
                 <Card.Body>
                   <Card.Text>
-                    {ind === 2 ? (
+                    {res.data?.type === "bubble" ? (
                       <Bubble options={res.options} data={res.data} />
                     ) : (
                       <Chart

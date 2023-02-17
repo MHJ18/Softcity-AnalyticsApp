@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   BellFill,
   FileEarmarkArrowUp,
@@ -28,9 +28,23 @@ function Header() {
   const [showDashDropdown, setShowDashDropdown] = useState(false);
   const [showSubDropdown, setShowSubDropdown] = useState(false);
   const [showFillDropdown, setShowFillDropdown] = useState(false);
+  const [hide, sethide] = useState({ success: false });
+  useMemo(() => {
+    $(".App").on("click", function () {
+      if (!hide.success) {
+        return sethide({ success: false });
+      }
+    });
+  }, [hide]);
 
   return (
     <Navbar bg="white" variant="light" expand="lg" fixed="top">
+      <button
+        className="button-top btn btn-primary"
+        onClick={() => {
+          sethide({ success: false });
+        }}
+      ></button>
       <Container fluid>
         <Navbar.Brand href="#home">
           <img
@@ -53,6 +67,7 @@ function Header() {
               className="nav-link"
               role="button"
               onClick={() => {
+                sethide({ success: true });
                 setShowDashDropdown(!showDashDropdown);
                 setShowSubDropdown(false);
                 setShowFillDropdown(false);
@@ -60,13 +75,16 @@ function Header() {
             >
               <Grid1x2Fill className="me-2" /> Dashboard
             </Link>
-            <div id="dashDropdown">{showDashDropdown && <DashDropdown />}</div>
+            <div id="dashDropdown">
+              {hide?.success && showDashDropdown && <DashDropdown />}
+            </div>
           </li>
           <li className="nav-item position-relative">
             <Link
               className="nav-link"
               role="button"
               onClick={() => {
+                sethide({ success: true });
                 setShowSubDropdown(!showSubDropdown);
                 setShowDashDropdown(false);
                 setShowFillDropdown(false);
@@ -75,7 +93,7 @@ function Header() {
               <FileEarmarkArrowUp className="me-2" /> Submit Data
             </Link>
             <div id="submitDropdown">
-              {showSubDropdown && <SubmitDropdown />}
+              {hide?.success && showSubDropdown && <SubmitDropdown />}
             </div>
           </li>
           <li className="nav-item dropdown">
@@ -83,6 +101,7 @@ function Header() {
               className="nav-link"
               role="button"
               onClick={() => {
+                sethide({ success: true });
                 setShowFillDropdown(!showFillDropdown);
                 setShowDashDropdown(false);
                 setShowSubDropdown(false);
@@ -91,7 +110,7 @@ function Header() {
               <FunnelFill className="me-2" /> Filters
             </Link>
             <div id="filterDropdown">
-              {showFillDropdown && <FilterDropdown />}
+              {hide?.success && showFillDropdown && <FilterDropdown />}
             </div>
           </li>
         </Nav>

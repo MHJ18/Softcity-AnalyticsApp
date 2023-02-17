@@ -16,7 +16,7 @@ const AvailableData = () => {
             <CreateUserGroup />
           </div>
           <footer className="border-top">
-            <div className="  d-flex align-items-center justify-content-between mx-4 ">
+            <div className=" d-flex align-items-center justify-content-between mx-4 ">
               <p className="fs-5 mx-3">Total: {dataForm.length}</p>
               <div className="py-4">
                 {/* <PaginationRounded /> */}

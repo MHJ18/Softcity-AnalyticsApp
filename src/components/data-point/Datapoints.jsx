@@ -5,12 +5,12 @@ import "./datacontainer.css";
 const Datapoints = () => {
   return (
     <>
-      <div className="container-color pt-4">
+      <div>
         <div className="row">
           <div className="col-md-5 col-lg-4 col-sm-12  ">
             <CreateDataPoints />
           </div>
-          <div className="col-md-7 col-lg-8 col-sm-12 right-grid ">
+          <div className="col-md-7 container col-lg-8 col-sm-12 right-grid  ">
             <AvailableData />
           </div>
         </div>

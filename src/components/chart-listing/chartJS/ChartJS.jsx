@@ -22,8 +22,10 @@ import BarChartButtons from "../BarChartButtons";
 
 //
 const ChartJS = () => {
-  const [labels, setlabels] = useState();
+  // const [labels, setlabels] = useState();
   const [dataChart, setdataChart] = useState();
+  const DATA_COUNT = 7;
+  const NUMBER_CFG = { count: DATA_COUNT, min: -50, max: 50 };
   My.register(
     LinearScale,
     CategoryScale,
@@ -37,8 +39,8 @@ const ChartJS = () => {
     BarController
   );
   useEffect(() => {
-    let labels = Utils.months({ count: 7 });
-    setdataChart([
+    let labels = Utils.months({ count: 4 });
+    setdataChart(() => [
       {
         options: {
           type: "line",
@@ -272,9 +274,6 @@ const ChartJS = () => {
       },
     ]);
   }, []);
-  const DATA_COUNT = 7;
-  const NUMBER_CFG = { count: DATA_COUNT, min: -50, max: 50 };
-
   //
   // *! Chart js Method
   // useEffect(() => {

@@ -19,8 +19,8 @@
 
 .header-before::before {
     content: '';
-    width: 15px;
-    height: 30px;
+    width: 16px;
+    height: 2.2rem;
     background-color: #FFBC99;
     border-radius: 3px;
     position: absolute;

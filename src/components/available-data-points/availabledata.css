@@ -13,35 +13,35 @@
 .second-conatiner {
     background-color: #FFFFFF;
     margin-right: 1.6rem;
-    margin-top: 7.7rem;
+    margin-top: 7.2rem;
     border-radius: 10px;
 }
 
 .overflow {
     overflow-x: hidden;
-    height: 40rem;
+    height: 34rem;
     scroll-behavior: smooth;
 
 }
 
 .font {
-    font-family: 'Poppins', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
     font-weight: normal;
-    font-size: 1.7rem;
-    margin-left: 3.5rem;
+    font-size: 1.5rem;
+    margin-left: 2.5rem;
 }
 
 .search-icon {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
     fill: black;
 }
 
 .search-bar {
-    height: 4rem;
-    width: 70%;
-    padding-right: 0.4rem;
+    height: 2.3rem;
+    /* flex: 0 0 50%; */
+    padding-right: 1.4rem;
 
 }
 
@@ -51,6 +51,11 @@
     outline-width: 0 !important;
     box-shadow: none;
 
+}
+
+p.total {
+    font-size: 1.2rem !important;
+    margin-bottom: 0;
 }
 
 .margin-left {

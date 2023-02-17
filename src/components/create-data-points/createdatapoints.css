@@ -6,7 +6,6 @@
 }
 
 
-
 .backgroud-left {
     background-color: #FFFFFF;
     padding-top: 1rem;
@@ -15,30 +14,30 @@
 }
 
 .data-point-left {
-    padding: 2rem 1rem 3rem 2rem;
+    padding: 2rem 1rem 1rem 1rem;
 }
 
 .main-title {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     margin-bottom: 2rem;
 }
 
 .data-point-heading {
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
 
 }
 
 .create-data-color {
-    width: 1.5rem;
-    height: 3rem;
+    width: 1rem;
+    height: 2.2rem;
     background-color: #FFBC99;
     border-radius: 3px;
 }
 
 .create-data-point {
-    margin-top: 1rem;
-    gap: 1rem;
+    margin-top: 0.7rem;
+    gap: 0.6rem;
     margin-left: 1rem;
     padding-left: 1rem;
 }
@@ -66,7 +65,7 @@
 
     padding: 0.5rem;
 
-    font-size: 1.04rem;
+    font-size: 0.9rem;
 
 }
 
@@ -86,13 +85,13 @@
 .form-text {
     font-family: 'Inter', sans-serif;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding-bottom: 0.5rem;
     color: #818181;
 }
 
 .create-btn-form {
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: normal;
     background-color: #194272 !important;
     color: white !important;
@@ -133,13 +132,13 @@
 }
 
 input[type=text] {
-    min-height: 3.5rem;
+    min-height: 3rem;
     color: orange;
     background-color: #F6F6F6;
 }
 
 .select {
-    min-height: 3.5rem;
+    min-height: 2.9rem;
     background-color: #F6F6F6;
     visibility: visible;
 
@@ -150,20 +149,25 @@ input[type=text] {
 }
 
 input::placeholder {
-    font-size: 1.05rem;
+    font-size: 0.9rem;
+}
+
+.form-select {
+    font-size: 0.9rem !important;
+    background-color: #F4F4F4 !important;
 }
 
 .form-check-label {
-    font-size: 1.1rem;
-    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    /* font-family: 'Inter', sans-serif; */
     font-weight: 500;
 }
 
 input[type=checkbox] {
 
 
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 0.9rem;
+    width: 0.9rem;
 }
 
 input[type=checkbox]:checked {
@@ -180,7 +184,7 @@ input[type=checkbox]:checked {
 }
 
 .label-input {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.6rem;
 }
 
 .hidden {
@@ -196,8 +200,8 @@ input[type=checkbox]:checked {
 .addicons {
     display: block;
     filter: contrast(110%);
-    margin: 1.5rem 0 1.5rem 0;
-    font-size: 4rem;
+    margin: 1.2rem 0;
+    font-size: 3rem;
     fill: #1d3557;
     cursor: pointer;
 
@@ -209,10 +213,10 @@ input[type=checkbox]:checked {
 }
 
 .check-label {
-    font-weight: 700;
-    font-family: 'Inter', sans-serif;
-    color: #777;
-    font-size: 1.2rem;
+    font-weight: 600;
+    /* font-family: 'Inter', sans-serif; */
+    /* color: #777; */
+    font-size: 0.9rem;
 
 }
 

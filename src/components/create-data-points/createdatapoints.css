@@ -134,7 +134,6 @@
 input[type=text] {
     min-height: 3rem;
     color: orange;
-    background-color: #F6F6F6;
 }
 
 .select {
@@ -154,8 +153,10 @@ input::placeholder {
 
 .form-select {
     font-size: 0.9rem !important;
-    background-color: #F4F4F4 !important;
+    background-color: #ddd !important;
 }
+
+
 
 .form-check-label {
     font-size: 0.9rem;

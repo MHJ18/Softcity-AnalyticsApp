@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import * as Utils from "./chartJS/Utils";
+import * as Utils from "./Utils";
 import ChartButtons from "../chart-listing/ChartButtons";
 import {
   Chart as ChartJS,
@@ -23,7 +23,7 @@ ChartJS.register(
 );
 function HBarChart() {
   const DATA_COUNT = 7;
-  const NUMBER_CFG = { count: DATA_COUNT, min: -50, max: 50 };
+  const NUMBER_CFG = { count: DATA_COUNT, min: -30, max: 30 };
   const options = {
     indexAxis: "y",
     elements: {
@@ -42,15 +42,7 @@ function HBarChart() {
       },
     },
   };
-  const labels = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-  ];
+  const labels = ["January", "February", "March", "April", "May"];
 
   const data = {
     labels,
@@ -70,17 +62,19 @@ function HBarChart() {
     ],
   };
   return (
-    <div className="px-2 pb-2 bg-white rounded" style={{ width: 400 }}>
-      <div className="headingOfData" style={{ margin: "25px" }}>
-        <span className="header-before">Text Content here</span>
-      </div>
-      <div className="d-flex flex-column align-items-center gap-3 ">
-        <Bar options={options} data={data} />
-        <div className="">
-          <ChartButtons />
+    <>
+      <div className="px-2 pb-2 bg-white rounded" style={{ width: 400 }}>
+        <div className="headingOfData" style={{ margin: "25px" }}>
+          <span className="header-before">Text Content here</span>
+        </div>
+        <div className="d-flex flex-column align-items-center gap-3 ">
+          <Bar options={options} data={data} />
+          <div className="">
+            <ChartButtons />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

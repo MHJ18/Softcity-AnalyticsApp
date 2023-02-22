@@ -10,7 +10,7 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import ChartButtons from "../chart-listing/ChartButtons";
-import "./chartJS/chartstyling.css";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,

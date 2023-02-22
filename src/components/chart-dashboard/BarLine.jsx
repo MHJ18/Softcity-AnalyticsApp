@@ -1,5 +1,5 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
+import { Chart } from "react-chartjs-2";
 import * as Utils from "./Utils";
 import ChartButtons from "../chart-listing/ChartButtons";
 
@@ -29,27 +29,42 @@ My.register(
   LineController,
   BarController
 );
-function SteppedLineChart() {
+const BarLine = () => {
+  const DATA_COUNT = 8;
+  const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
   let labels = Utils.months({ count: 6 });
   const data = {
-    labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6"],
+    labels: labels,
     datasets: [
       {
-        label: "Dataset",
-        data: Utils.numbers({ count: 6, min: -100, max: 100 }),
+        label: "Dataset 1",
+        data: Utils.numbers(NUMBER_CFG),
         borderColor: Utils.CHART_COLORS.red,
-        fill: false,
-        stepped: true,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+        order: 1,
+      },
+      {
+        type: "bar",
+        label: "Dataset 2",
+        data: Utils.numbers(NUMBER_CFG),
+        borderColor: Utils.CHART_COLORS.blue,
+        backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+        order: 0,
       },
     ],
   };
   const options = {
-    responsive: true,
-    interaction: {
-      intersect: false,
-      axis: "x",
+    type: "bar",
+    data: Utils.numbers(NUMBER_CFG),
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: false,
+          text: "Chart.js Line Chart",
+        },
+      },
     },
-    plugins: {},
   };
   return (
     <>
@@ -58,7 +73,7 @@ function SteppedLineChart() {
           <span className="header-before">Text Content here</span>
         </div>
         <div className="d-flex flex-column align-items-center gap-3 ">
-          <Line type="line" options={options} data={data} />
+          <Chart type="line" options={options} data={data} />
           <div className="">
             <ChartButtons />
           </div>
@@ -66,6 +81,6 @@ function SteppedLineChart() {
       </div>
     </>
   );
-}
+};
 
-export default SteppedLineChart;
+export default BarLine;

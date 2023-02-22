@@ -7,14 +7,16 @@ import {
   Legend,
 } from "chart.js";
 import { faker } from "@faker-js/faker";
-import { Bubble } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import * as Utils from "./Utils";
 import ChartButtons from "../chart-listing/ChartButtons";
 ChartJS.register(LinearScale, PointElement, Tooltip, Legend);
+const FloatingBarChart = () => {
+  let labels = Utils.months({ count: 6 });
 
-export default function App() {
   const options = {
-    type: "bubble",
+    type: "bar",
+
     options: {
       responsive: true,
       plugins: {
@@ -23,36 +25,33 @@ export default function App() {
         },
         title: {
           display: true,
-          text: "Chart.js Bubble Chart",
+          text: "Chart.js Floating Bar Chart",
         },
       },
     },
   };
   const data = {
+    labels: labels,
+
     datasets: [
       {
-        label: "Red dataset",
-        data: Array.from({ length: 10 }, () => ({
-          x: faker.datatype.number({ min: -20, max: 30 }),
-          y: faker.datatype.number({ min: -40, max: 50 }),
-          r: faker.datatype.number({ min: 5, max: 10 }),
-        })),
-        backgroundColor: "rgba(255, 99, 13, 0.5)",
+        label: "Dataset 1",
+        data: labels.map(() => {
+          return [Utils.rand(-30, 50), Utils.rand(-50, 50)];
+        }),
+        backgroundColor: Utils.CHART_COLORS.red,
       },
       {
-        label: "Blue dataset",
-        data: Array.from({ length: 10 }, () => ({
-          x: faker.datatype.number({ min: -10, max: 50 }),
-          y: faker.datatype.number({ min: -30, max: 50 }),
-          r: faker.datatype.number({ min: 5, max: 10 }),
-        })),
-        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        label: "Dataset 2",
+        data: labels.map(() => {
+          return [Utils.rand(-10, 20), Utils.rand(-50, 50)];
+        }),
+        backgroundColor: Utils.CHART_COLORS.blue,
       },
     ],
   };
-
   return (
-    <>
+    <div>
       <div className="px-2 pb-2 rounded border bg-white" style={{ width: 400 }}>
         <div
           className="headingOfData"
@@ -61,12 +60,14 @@ export default function App() {
           <span className="header-before">Text Content here</span>
         </div>
         <div className="d-flex flex-column align-items-center gap-3">
-          <Bubble options={options} data={data} />
+          <Bar options={options} data={data} />
           <div>
             <ChartButtons />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
-}
+};
+
+export default FloatingBarChart;

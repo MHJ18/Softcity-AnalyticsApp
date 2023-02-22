@@ -29,27 +29,58 @@ My.register(
   LineController,
   BarController
 );
-function SteppedLineChart() {
+const MultiAxisChart = () => {
+  const DATA_COUNT = 8;
+  const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
   let labels = Utils.months({ count: 6 });
   const data = {
-    labels: ["Day 1", "Day 2", "Day 3", "Day 4", "Day 5", "Day 6"],
+    labels,
     datasets: [
       {
-        label: "Dataset",
-        data: Utils.numbers({ count: 6, min: -100, max: 100 }),
-        borderColor: Utils.CHART_COLORS.red,
-        fill: false,
-        stepped: true,
+        label: "Dataset 1",
+        data: labels.map(() => faker.datatype.number({ min: -100, max: 100 })),
+        borderColor: "rgb(255, 99, 132)",
+        backgroundColor: "rgba(255, 99, 132, 0.5)",
+        yAxisID: "y",
+      },
+      {
+        label: "Dataset 2",
+        data: labels.map(() => faker.datatype.number({ min: -100, max: 100 })),
+        borderColor: "rgb(53, 162, 235)",
+        backgroundColor: "rgba(53, 162, 235, 0.5)",
+        yAxisID: "y1",
       },
     ],
   };
+
   const options = {
     responsive: true,
     interaction: {
+      mode: "index",
       intersect: false,
-      axis: "x",
     },
-    plugins: {},
+    stacked: false,
+    plugins: {
+      title: {
+        display: false,
+        text: "Chart.js Line Chart - Multi Axis",
+      },
+    },
+    scales: {
+      y: {
+        type: "linear",
+        display: true,
+        position: "left",
+      },
+      y1: {
+        type: "linear",
+        display: true,
+        position: "right",
+        grid: {
+          drawOnChartArea: false,
+        },
+      },
+    },
   };
   return (
     <>
@@ -66,6 +97,6 @@ function SteppedLineChart() {
       </div>
     </>
   );
-}
+};
 
-export default SteppedLineChart;
+export default MultiAxisChart;

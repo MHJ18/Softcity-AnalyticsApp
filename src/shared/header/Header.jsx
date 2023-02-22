@@ -278,12 +278,12 @@ function Header() {
               </Link>
               <ul className="dropdown-menu dropdown-menu-end border-0 shadow">
                 <li>
-                  <Link className="dropdown-item" to="">
+                  <Link className="dropdown-item" to="/">
                     <Person className="text-primary me-2" /> Profile
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" to="">
+                  <Link className="dropdown-item" to="/">
                     <Gear className="text-primary me-2" /> Account Setting
                   </Link>
                 </li>
@@ -291,7 +291,7 @@ function Header() {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link className="dropdown-item" href="#">
+                  <Link className="dropdown-item" to="/">
                     <Power className="text-danger me-2" /> Logout
                   </Link>{" "}
                 </li>

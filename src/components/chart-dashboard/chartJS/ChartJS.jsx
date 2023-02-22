@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Bar, Line, Chart, Bubble } from "react-chartjs-2";
+import { Chart, Bubble } from "react-chartjs-2";
 import * as Utils from "./Utils";
-import Card from "react-bootstrap/Card";
 import "./chartstyling.css";
+import ChartButtons from "../../chart-listing/ChartButtons";
+import BubbleChart from "../BubbleChart";
+import { faker } from "@faker-js/faker";
 import {
   Chart as My,
   LinearScale,
@@ -16,30 +18,32 @@ import {
   LineController,
   BarController,
 } from "chart.js";
-import BarChartButtons from "../BarChartButtons";
+My.register(
+  LinearScale,
+  CategoryScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  Legend,
+  Tooltip,
+  Filler,
+  LineController,
+  BarController
+);
 
-//
-
-//
 const ChartJS = () => {
-  // const [labels, setlabels] = useState();
   const [dataChart, setdataChart] = useState();
-  const DATA_COUNT = 7;
-  const NUMBER_CFG = { count: DATA_COUNT, min: -50, max: 50 };
-  My.register(
-    LinearScale,
-    CategoryScale,
-    BarElement,
-    PointElement,
-    LineElement,
-    Legend,
-    Tooltip,
-    Filler,
-    LineController,
-    BarController
-  );
+  const DATA_COUNT = 8;
+  const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
+  let labels = Utils.months({ count: 6 });
+  const NUMBER_CFG2 = {
+    count: DATA_COUNT,
+    rmin: 5,
+    rmax: 15,
+    min: 0,
+    max: 100,
+  };
   useEffect(() => {
-    let labels = Utils.months({ count: 4 });
     setdataChart(() => [
       {
         options: {
@@ -56,22 +60,6 @@ const ChartJS = () => {
             interaction: {
               mode: "index",
               intersect: false,
-            },
-            scales: {
-              x: {
-                display: true,
-                title: {
-                  display: false,
-                  text: "Month",
-                },
-              },
-              y: {
-                display: true,
-                title: {
-                  display: false,
-                  text: "Value",
-                },
-              },
             },
           },
         },
@@ -109,23 +97,11 @@ const ChartJS = () => {
           type: "bar",
           data: Utils.numbers(NUMBER_CFG),
           options: {
-            responsive: false,
+            responsive: true,
             plugins: {
               title: {
-                display: true,
+                display: false,
                 text: "Chart.js Line Chart",
-              },
-            },
-            interaction: {
-              mode: "index",
-              intersect: false,
-            },
-            scales: {
-              x: {
-                display: true,
-              },
-              y: {
-                display: true,
               },
             },
           },
@@ -144,6 +120,7 @@ const ChartJS = () => {
               order: 1,
             },
             {
+              type: "bar",
               label: "Dataset 2",
               data: Utils.numbers(NUMBER_CFG),
               borderColor: Utils.CHART_COLORS.blue,
@@ -151,49 +128,68 @@ const ChartJS = () => {
                 Utils.CHART_COLORS.blue,
                 0.5
               ),
-              type: "bar",
               order: 0,
             },
           ],
         },
       },
+
       {
         options: {
-          scales: {
-            y: {
-              beginAtZero: true,
+          type: "line",
+          options: {
+            plugins: {
+              title: {
+                text: "Chart.js Combo Time Scale",
+                display: true,
+              },
+            },
+            scales: {
+              x: {
+                type: "time",
+                display: true,
+                offset: true,
+                time: {
+                  unit: "day",
+                },
+              },
             },
           },
         },
-
         data: {
-          type: "bubble",
           labels: labels,
           datasets: [
             {
-              label: "Red dataset",
-              data: Array.from({ length: 2 }, () => ({
-                x: 10,
-                y: 20,
-                r: 10,
-              })),
-              backgroundColor: "rgba(255, 99, 132, 0.5)",
+              type: "bar",
+              label: "Dataset 1",
+              backgroundColor: Utils.transparentize(
+                Utils.CHART_COLORS.red,
+                0.5
+              ),
+              borderColor: Utils.CHART_COLORS.red,
+              data: Utils.numbers(NUMBER_CFG),
             },
             {
-              label: "Blue dataset",
-              data: [
-                {
-                  x: 20,
-                  y: 30,
-                  r: 15,
-                },
-                {
-                  x: 40,
-                  y: 10,
-                  r: 10,
-                },
-              ],
-              backgroundColor: "rgba(53, 162, 235, 0.5)",
+              type: "bar",
+              label: "Dataset 2",
+              backgroundColor: Utils.transparentize(
+                Utils.CHART_COLORS.blue,
+                0.5
+              ),
+              borderColor: Utils.CHART_COLORS.blue,
+              data: Utils.numbers(NUMBER_CFG),
+            },
+            {
+              type: "line",
+              label: "Dataset 3",
+              backgroundColor: Utils.transparentize(
+                Utils.CHART_COLORS.green,
+                0.5
+              ),
+              borderColor: Utils.CHART_COLORS.green,
+              fill: false,
+              data: Utils.numbers(NUMBER_CFG),
+              borderWidth: 1.3,
             },
           ],
         },
@@ -201,73 +197,38 @@ const ChartJS = () => {
       {
         options: {
           type: "bubble",
-          data: Utils.numbers(NUMBER_CFG),
           options: {
-            responsive: false,
+            responsive: true,
             plugins: {
+              legend: {
+                position: "top",
+              },
               title: {
                 display: true,
-                text: "Chart.js Line Chart",
-              },
-            },
-            interaction: {
-              mode: "index",
-              intersect: false,
-            },
-            scales: {
-              x: {
-                display: true,
-                title: {
-                  display: false,
-                  text: "Month",
-                },
-              },
-              y: {
-                display: true,
-                title: {
-                  display: false,
-                  text: "Value",
-                },
+                text: "Chart.js Bubble Chart",
               },
             },
           },
         },
         data: {
-          labels: labels,
           datasets: [
             {
-              label: "Dataset 1",
-              data: Utils.numbers(NUMBER_CFG),
-              borderColor: Utils.CHART_COLORS.red,
-              backgroundColor: Utils.transparentize(
-                Utils.CHART_COLORS.red,
-                0.5
-              ),
-              order: 1,
+              label: "Red dataset",
+              data: Array.from({ length: 50 }, () => ({
+                x: faker.datatype.number({ min: -40, max: 50 }),
+                y: faker.datatype.number({ min: -40, max: 50 }),
+                r: faker.datatype.number({ min: 5, max: 10 }),
+              })),
+              backgroundColor: "rgba(255, 99, 13, 0.5)",
             },
             {
-              label: "Dataset 2",
-              type: "bar",
-              data: Utils.numbers(NUMBER_CFG),
-              borderColor: Utils.CHART_COLORS.orange,
-              borderWidth: "1",
-              backgroundColor: Utils.transparentize(
-                Utils.CHART_COLORS.orange,
-                0.5
-              ),
-              order: 2,
-            },
-            {
-              label: "Dataset 3",
-              data: Utils.numbers(NUMBER_CFG),
-              borderWidth: "1",
-              borderColor: Utils.CHART_COLORS.blue,
-              backgroundColor: Utils.transparentize(
-                Utils.CHART_COLORS.blue,
-                0.5
-              ),
-              type: "bar",
-              order: 3,
+              label: "Blue dataset",
+              data: Array.from({ length: 50 }, () => ({
+                x: faker.datatype.number({ min: -10, max: 50 }),
+                y: faker.datatype.number({ min: -30, max: 50 }),
+                r: faker.datatype.number({ min: 5, max: 10 }),
+              })),
+              backgroundColor: "rgba(53, 162, 235, 0.5)",
             },
           ],
         },
@@ -326,25 +287,29 @@ const ChartJS = () => {
       {dataChart?.map((res, ind) => {
         return (
           <>
-            <div className="col-lg-4 col-md-6">
-              <Card>
-                <Card.Title>Primary Card Title</Card.Title>
-                <Card.Body>
-                  <Card.Text>
-                    {res.data?.type === "bubble" ? (
-                      <Bubble options={res.options} data={res.data} />
-                    ) : (
-                      <Chart
-                        key={ind}
-                        type="line"
-                        options={res.options}
-                        data={res.data}
-                      />
-                    )}
-                  </Card.Text>
-                  <BarChartButtons />
-                </Card.Body>
-              </Card>
+            <div
+              className="px-2 pb-2 bg-white rounded "
+              style={{ width: 400, height: "auto" }}
+            >
+              <div className="headingOfData" style={{ margin: "23px" }}>
+                <span className="header-before">Text Content here</span>
+              </div>
+              <div className="d-flex flex-column align-items-center gap-3 ">
+                {res.options?.type === "bubble" ? (
+                  <Bubble options={res.options} data={res.data} />
+                ) : (
+                  <Chart
+                    key={ind}
+                    type="line"
+                    options={res.options}
+                    data={res.data}
+                  />
+                )}
+
+                {/* <BubbleChart /> */}
+
+                <ChartButtons />
+              </div>
             </div>
           </>
         );

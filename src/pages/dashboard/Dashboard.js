@@ -1,11 +1,13 @@
-import React from 'react'
-import ChartListing from '../../components/chart-listing/ChartListing'
+import React from "react";
+import ChartListing from "../../components/chart-listing/ChartListing";
+import Chartdashboard from "../../components/chart-dashboard/Chartdashboard";
 function Dashboard() {
   return (
     <>
-        <ChartListing/>
+      <ChartListing />
+      <Chartdashboard />
     </>
-  )
+  );
 }
 
-export default Dashboard
+export default Dashboard;

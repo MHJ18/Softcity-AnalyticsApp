@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   BellFill,
   FileEarmarkArrowUp,
@@ -29,22 +29,16 @@ function Header() {
   const [showSubDropdown, setShowSubDropdown] = useState(false);
   const [showFillDropdown, setShowFillDropdown] = useState(false);
   const [hide, sethide] = useState({ success: false });
-  useMemo(() => {
+  useEffect(() => {
     $(".App").on("click", function () {
       if (!hide.success) {
-        return sethide({ success: false });
+        sethide({ success: false });
       }
     });
   }, [hide]);
 
   return (
     <Navbar bg="white" variant="light" expand="lg" fixed="top">
-      <button
-        className="button-top btn btn-primary"
-        onClick={() => {
-          sethide({ success: false });
-        }}
-      ></button>
       <Container fluid>
         <Navbar.Brand href="#home">
           <img
